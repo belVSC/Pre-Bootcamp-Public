@@ -1,0 +1,5 @@
+The first problem will not output any errors. It will simply log Tesla, and then Mercedes.
+The second problem will log "othername" but not "name" as name was redefined within the second block using a semi-colon.
+The third problem will be undefined as "hashedPassword" was not defined within the first const. 
+The fourth problem will print false as first is not equal to second but the second console log will print true as first is equal to third. 
+The final problem will output all the values properly. 
