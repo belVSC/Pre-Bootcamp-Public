@@ -1,0 +1,7 @@
+The first problem will output Tesla then Mercedes. 
+The second problem will not output anything and will result in an error due to "name" not being defined.
+The third problem will output 12345 however will not output anything for "hashedPassword" as it is undefined.
+The fourth problem will output false as the value "first" is equal to 2 and the value "second" is equal to 5. The second log will
+output true as "first" is equal to 2 and "third" is equal to 2 as well.
+The final problem will output 4 different values. The first being "value" which is what key is defined as. The second log will print out the array that "secondKey" is defined as ([1,5,1,8,3,3])
+The third and fourth output will consist of the individual values set within the array. secondKey[0]; being 1, and "willThisWork" being 5 
