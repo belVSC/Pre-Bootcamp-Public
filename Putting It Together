@@ -1,0 +1,142 @@
+//Person Card:
+  import React, { useState } from "react";
+
+const PersonCard = (props) => {
+  const { firstName, lastName, age, hairColor } = props;
+    const [stateAge, setStateAge] = useState(age);
+      return (
+    <div>
+      <h2>
+        {lastName}, {firstName}
+      </h2>
+        <p>Age: {stateAge}</p>
+        <p>Hair Color: {hairColor}</p>
+          <button onClick={() => setStateAge(stateAge + 1)}>
+            Birthday Button for {firstName} {lastName}
+          </button>
+      </div>
+    );
+};
+
+export default PersonCard;
+
+//APP.css
+:
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+import logo from "./logo.svg";
+import "./App.css";
+import PersonCard from "./components/PersonCard";
+
+// App.JS: -->
+
+const peopleArr = [
+  {
+    firstName: "Joe",
+    lastName: "Smith",
+    age: 28,
+    hairColor: "blonde",
+  },
+  {
+    firstName: "Matilda",
+    lastName: "Jones",
+    age: 33,
+    hairColor: "brown",
+  },
+  {
+    firstName: "Jane",
+    lastName: "Johnson",
+    age: 34,
+    hairColor: "blonde",
+  },
+  {
+    firstName: "Hal",
+    lastName: "Moore",
+    age: 90,
+    hairColor: "grey",
+  },
+];
+
+function App() {
+  return (
+    <div className="App">
+      {peopleArr.map((personObj, index) => (
+        <PersonCard
+          key={index}
+          firstName={personObj.firstName}
+          lastName={personObj.lastName}
+          age={personObj.age}
+          hairColor={personObj.hairColor}
+      />
+   ))}
+      
+// index.css -->
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+// index.js -->
+
+import React from 'react';
+
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+
