@@ -1,0 +1,77 @@
+// app.js:
+
+import './App.css';
+import Home from './components/Home';
+import ParamsComponent from './components/ParamsComponent';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+
+function App() {
+  return (
+    <BrowserRouter>
+    <div className="App">
+
+      <Routes>
+        <Route element={<Home />} path="/home"/>
+        <Route element={<ParamsComponent />} path="/:word" />
+        <Route element={<ParamsComponent />} path="/:word/:color/:bgCol" />
+      </Routes>
+
+    </div>
+    </BrowserRouter>
+  );
+}
+
+export default App;
+
+
+// home.js:
+
+import React from 'react';
+
+const Home = (props) => {
+
+    return (
+        <div>
+            Welcome!
+        </div>
+    )
+}
+
+
+export default Home;
+
+// params.js
+
+
+
+import React from 'react';
+import { useParams } from 'react-router-dom';
+
+const ParamsComponent = (props)=>{
+
+    const {word, color, bgCol} = useParams();
+
+    return(
+        <div>
+
+            {
+                
+                isNaN(word)?  //If word param isn't a number:
+                <p style={
+                  {color: color, backgroundColor: bgCol}
+                    :null
+                }>
+                    This is a word: {word}
+                </p>
+        
+                <p>
+                    This is a number: {word}
+                </p>
+            }
+
+        </div>
+    )
+}
+
+
+export default ParamsComponent;
